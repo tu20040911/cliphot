@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        box-sizing: border-box;
+      }
+      body {
+        background: #001e4d;
+      }
+      .app {
+        background: #fff;
+        width: 90%;
+        max-width: 600px;
+        margin: 100px auto 0;
+        border-radius: 10px;
+        padding: 30px;
+      }
+      .app h1 {
+        font-size: 25px;
+        color: #001e4d;
+        font-weight: 600;
+        border-bottom: 1px solid #333;
+        padding-bottom: 30px;
+      }
+      .quiz {
+        padding: 20px 0;
+      }
+      .quiz h2 {
+        font-size: 18px;
+        color: #001e4d;
+        font-weight: 600;
+      }
+      .btn {
+        background: #fff;
+        color: #222;
+        font-weight: 500;
+        width: 100%;
+        border: 1px solid #222;
+        padding: 10px;
+        margin: 10px 0;
+        text-align: left;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .btn:hover:not([disabled]) {
+        background: #222;
+        color: #fff;
+      }
+
+      #next-btn {
+        background: #001e4d;
+        color: #fff;
+        font-weight: 500;
+        width: 150px;
+        border: 0;
+        padding: 10px;
+        margin: 20px auto 0;
+        border-radius: 4px;
+        cursor: pointer;
+        display: none;
+      }
+      .correct {
+        background: #9aeabc;
+      }
+      .incorrect {
+        background: #ff9393;
+      }
+      .btn:disabled {
+        cursor: no-drop;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      atOptions = {
+        key: "afc8e3f8de860f7dbd9ff64b6bd7f905",
+        format: "iframe",
+        height: 600,
+        width: 160,
+        params: {},
+      };
+    </script>
+    <script
+      type="text/javascript"
+      src="//midgerelativelyhoax.com/afc8e3f8de860f7dbd9ff64b6bd7f905/invoke.js"
+    ></script>
+    <br />
+    <br />
+    <div class="app">
+      <h1>Trả lời câu hỏi có thưởng</h1>
+      <div class="quiz">
+        <h2 id="question">vui lòng trả lời câu hỏi</h2>
+        <div id="answer-buttons">
+          <button class="btn">ans 1</button>
+          <button class="btn">ans 1</button>
+          <button class="btn">ans 1</button>
+          <button class="btn">ans 1</button>
+        </div>
+        <button id="next-btn">Next</button>
+      </div>
+    </div>
+    <script>
+      const question = [
+        {
+          question:
+            "Vì đây là khảo soát quyết định công việc của một người mong bạn nghiêm túc ?",
+          answers: [
+            {
+              Text: "vâng",
+              correct: true,
+            },
+            {
+              Text: "vâng",
+              correct: true,
+            },
+            {
+              Text: "Vâng",
+              correct: true,
+            },
+            { Text: "vâng", correct: true },
+          ],
+        },
+        {
+          question: "Bạn có biết Sukem ở xưởng may không ? ",
+          answers: [
+            { Text: "Có", correct: true },
+            { Text: "Không", correct: false },
+            { Text: "Mới quen biết", correct: false },
+            { Text: "Chưa gặp bao giờ", correct: false },
+          ],
+        },
+        {
+          question: "Bạn với cậu ấy là gì của nhau ? ",
+          answers: [
+            { Text: "Bạn bè", correct: true },
+            { Text: "Người lạ", correct: false },
+            { Text: "Người thân", correct: false },
+            { Text: "Hàng xóm", correct: false },
+          ],
+        },
+        {
+          question: "Tính cách của sukem như thế nào",
+          answers: [
+            { Text: "Hiền lành tốt tính đi sớm về muộn", correct: true },
+            { Text: "Lạm quyền, bắt nạt người khác", correct: false },
+            { Text: "Chia bè kết phái , ích kĩ", correct: false },
+            {
+              Text: "Làm việc riêng trong giờ,Nói xấu đồng nghiệp và cấp trên",
+              correct: false,
+            },
+          ],
+        },
+        {
+          question:
+            "Sukem bảo bị Tai nạn nghề nghiệp nên phải nghỉ làm 2 tháng đúng không ? ",
+          answers: [
+            { Text: "Đúng chính mắt tôi đã gặp", correct: true },
+            { Text: "Sai,Tôi chưa từng thấy", correct: false },
+            {
+              Text: "Tôi không biết vì tôi chưa nghe thông tin gì",
+              correct: false,
+            },
+            { Text: "Tôi không liên quan", correct: false },
+          ],
+        },
+        {
+          question: "Bạn có phải đồng nghiệp với sukem không ? ",
+          answers: [
+            { Text: "Đúng ", correct: true },
+            { Text: "Sai", correct: false },
+            { Text: "không chọn", correct: false },
+            { Text: "không chọn", correct: false },
+          ],
+        },
+        {
+          question:
+            "Sukem báo cáo trong công ty có những nhân viên tính cách xấu xa và đánh cậu ấy trong giờ làm ? ",
+          answers: [
+            {
+              Text: "Không vì tôi thấy cậu ấy mới là người ăn hiếp người khác",
+              correct: false,
+            },
+            {
+              Text: "Đúng vì tôi cũng là người bị ăn hiếp như cậu ấy",
+              correct: true,
+            },
+            { Text: "Đúng vì tôi đã thấy ", correct: false },
+            {
+              Text: "Không vì tôi không làm cùng cậu ấy",
+              correct: false,
+            },
+          ],
+        },
+        {
+          question: "Bạn có hài vòng về sếp hiện tại của bạn không ?",
+          answers: [
+            {
+              Text: "Có",
+              correct: true,
+            },
+            {
+              Text: "Không",
+              correct: false,
+            },
+            { Text: ".", correct: false },
+            { Text: ".", correct: false },
+          ],
+        },
+        {
+          question: "Tại sao bạn lại muốn vào lại công ty chúng tôi ?",
+          answers: [
+            {
+              Text: "Công ty ưu đãi tốt, đãi ngộ nhân viên hợp lý, đầy đủ sự bảo hộ cá nhân",
+              correct: false,
+            },
+            {
+              Text: "Không tôi chỉ đang thất nghiệp và muốn làm lại",
+              correct: true,
+            },
+            {
+              Text: "Tại vì tôi tìm hiểu thấy công việc phù hợp với tôi",
+              correct: false,
+            },
+            { Text: "Tôi không muốn vào làm", correct: false },
+          ],
+        },
+        {
+          question: "Su kem có ép buộc bạn phải làm bảng khảo soát này không",
+          answers: [
+            {
+              Text: "không",
+              correct: false,
+            },
+            {
+              Text: "có",
+              correct: true,
+            },
+            {
+              Text: ".",
+              correct: false,
+            },
+            { Text: ".", correct: false },
+          ],
+        },
+        {
+          question: "Tại sao bạn lại làm giúp cậu ấy khảo soát này ",
+          answers: [
+            { Text: "Tôi vô tình được bạn ấy nhờ giúp đỡ", correct: false },
+            {
+              Text: "Tôi là đồng nghiệp nên tôi muốn giúp cậu ấy một phiếu",
+              correct: true,
+            },
+            {
+              Text: "Tôi muốn giúp vì tôi muốn cậu ấy có một công việc tốt hơn",
+              correct: false,
+            },
+            { Text: "Không, tôi bị cậu ấy ép", correct: false },
+          ],
+        },
+        {
+          question: "Chúng tôi cần một nhân viên trung thực còn cậu ấy  ?",
+          answers: [
+            {
+              Text: "rất tốt, tôi tin tưởng cậu ấy",
+              correct: true,
+            },
+            {
+              Text: "Không, tính cách cậu ấy không tốt",
+              correct: false,
+            },
+            {
+              Text: "Tôi thật sự thấy thất vọng về tính cách cậu ấy",
+              correct: false,
+            },
+            {
+              Text: "Tôi rất muốn chia sẻ vì cậu ấy thật sự tồi tệ",
+              correct: false,
+            },
+          ],
+        },
+        {
+          question: "Su kem bảo gia đình cậu ấy có 3 người đúng chứ ?",
+          answers: [
+            {
+              Text: "Đúng",
+              correct: true,
+            },
+            {
+              Text: "Sai",
+              correct: false,
+            },
+            {
+              Text: ".",
+              correct: false,
+            },
+            { Text: ".", correct: false },
+          ],
+        },
+        {
+          question: "Gồm Cô ấy , mẹ , và em trai ?",
+          answers: [
+            { Text: "Đúng", correct: true },
+            { Text: "sai", correct: false },
+            { Text: ".", correct: false },
+            { Text: ".", correct: false },
+          ],
+        },
+        {
+          question: "Bố cậu ấy mất sớm đúng không ?",
+          answers: [
+            {
+              Text: "Đúng",
+              correct: false,
+            },
+            {
+              Text: "Sai",
+              correct: true,
+            },
+            {
+              Text: ".",
+              correct: false,
+            },
+            { Text: ".", correct: false },
+          ],
+        },
+        {
+          question: "Tại sao bạn lại muốn vào lại công ty chúng tôi ?",
+          answers: [
+            {
+              Text: "Công ty ưu đãi tốt, đãi ngộ nhân viên hợp lý, đầy đủ sự bảo hộ cá nhân",
+              correct: false,
+            },
+            {
+              Text: "Không tôi chỉ đang thất nghiệp và muốn làm lại",
+              correct: true,
+            },
+            {
+              Text: "Tại vì tôi tìm hiểu thấy công việc phù hợp với tôi",
+              correct: false,
+            },
+            { Text: "Tôi không muốn vào làm", correct: false },
+          ],
+        },
+        {
+          question: "Số căn cước công dân bạn ấy là 079303028372 đúng không ?",
+          answers: [
+            { Text: "không", correct: false },
+            { Text: "Đúng", correct: true },
+            { Text: "Tôi không biết", correct: false },
+            { Text: ".", correct: false },
+          ],
+        },
+        {
+          question: "cậu ấy sinh ngày 18/9 đúng không ?",
+          answers: [
+            {
+              Text: "Đúng",
+              correct: true,
+            },
+            {
+              Text: "Sai",
+              correct: false,
+            },
+            {
+              Text: ".",
+              correct: false,
+            },
+            { Text: ".", correct: false },
+          ],
+        },
+        {
+          question: "Ý kiến riêng : bạn có muốn chúng tôi tuyển cậu ấy?",
+          answers: [
+            {
+              Text: "Không",
+              correct: false,
+            },
+            {
+              Text: "Có",
+              correct: true,
+            },
+            {
+              Text: "",
+              correct: false,
+            },
+            { Text: "", correct: false },
+          ],
+        },
+        {
+          question:
+            "Vì là do vấn công nghề nghiệp nên chúng tôi sẽ dựa trên số phiếu để quyết định việc làm của cô ấy ?",
+          answers: [
+            {
+              Text: "Vâng tôi cảm ơn",
+              correct: true,
+            },
+            {
+              Text: "Vâng tôi cảm ơn",
+              correct: true,
+            },
+            {
+              Text: "Vâng tôi cảm ơn",
+              correct: true,
+            },
+            { Text: "Vâng tôi cảm ơn", correct: true },
+          ],
+        },
+        {
+          question: "Cảm ơn bạn đã dành thời gian cho chúng tôi",
+          answers: [
+            {
+              Text: "Vâng tôi cảm ơn",
+              correct: true,
+            },
+            {
+              Text: "Vâng tôi cảm ơn",
+              correct: true,
+            },
+            {
+              Text: "Vâng tôi cảm ơn",
+              correct: true,
+            },
+            { Text: "Vâng tôi cảm ơn", correct: true },
+          ],
+        },
+      ];
+      const questionElement = document.getElementById("question");
+      const answersButton = document.getElementById("answer-buttons");
+      const nextbutton = document.getElementById("next-btn");
+      let currentQuestionIndex = 0;
+      let score = 0;
+      function startquiz() {
+        currentQuestionIndex = 0;
+        score = 0;
+        nextbutton.innerHTML = "Next";
+        showQuestion();
+      }
+      function showQuestion() {
+        resetState();
+        let currentQuestion = question[currentQuestionIndex];
+        let questionNo = currentQuestionIndex + 1;
+        questionElement.innerHTML =
+          questionNo + ". " + currentQuestion.question;
+        currentQuestion.answers.forEach((answer) => {
+          const button = document.createElement("button");
+          button.innerHTML = answer.Text;
+          button.classList.add("btn");
+          answersButton.appendChild(button);
+          if (answer.correct) {
+            button.dataset.correct = answer.correct;
+          }
+          button.addEventListener("click", selectAnswer);
+        });
+      }
+      function resetState() {
+        nextbutton.style.dislay = "none";
+        while (answersButton.firstChild) {
+          answersButton.removeChild(answersButton.firstChild);
+        }
+      }
+      function selectAnswer(e) {
+        const selectedBtn = e.target;
+        const iscorrect = selectedBtn.dataset.correct === "true";
+        if (iscorrect) {
+          selectedBtn.classList.add("correct");
+          score++;
+        } else {
+          selectedBtn.classList.add("incorrect");
+        }
+        Array.from(answersButton.children).forEach((button) => {
+          if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+          }
+          button.Disabled = "true";
+        });
+        nextbutton.style.display = "block";
+      }
+      function showscore() {
+        resetState();
+        questionElement.innerHTML = `Bạn đúng ${score} Trên  ${question.length} câu!`;
+        nextbutton.innerHTML = "play Again";
+        nextbutton.style.display = "block";
+      }
+      function handlenextbutton() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < question.length) {
+          showQuestion();
+        } else {
+          showscore();
+        }
+      }
+      nextbutton.addEventListener("click", () => {
+        if (currentQuestionIndex < question.length) {
+          handlenextbutton();
+        } else {
+          startquiz();
+        }
+      });
+      startquiz();
+    </script>
+    <br />
+    <br />
+    <br />
+    <script type="text/javascript">
+      atOptions = {
+        key: "afc8e3f8de860f7dbd9ff64b6bd7f905",
+        format: "iframe",
+        height: 600,
+        width: 160,
+        params: {},
+      };
+    </script>
+    <script
+      type="text/javascript"
+      src="//midgerelativelyhoax.com/afc8e3f8de860f7dbd9ff64b6bd7f905/invoke.js"
+    ></script>
+  </body>
+</html>

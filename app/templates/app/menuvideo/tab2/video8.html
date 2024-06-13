@@ -1,0 +1,29 @@
+{% extends 'app/index.html' %} {% load static %} {% block video_content %}
+{% include 'app/video/qc.html' %}
+<style>
+  .content {
+    margin-left: 40%; /* Hoặc giá trị tương ứng với chiều rộng của .left-side */
+  }
+</style>
+<div class="content">
+  <h1>Vui lòng kéo xuống và xem video</h1>
+  <a
+    href="https://midgerelativelyhoax.com/jryc3scma?key=80851b53fa22d7955e81380834d3e616"
+    rel="noopener noreferrer"
+    id="video1"
+    ><iframe
+        src="https://www.blogger.com/video.g?token=AD6v5dwnKZ5BJcGlWaXFBSF-oVHIzxIXMsE_f5zuAZK2U1b_k9fq-bIbGV1ATFRAE21eWcacvi5g-xAQeV95gsB1xUjqmXh9W7Rc7t_9zATzkJY7k2A5lS7-hjnp595mIhMLA5EgxLU"
+        width="640"
+        height="360"
+        allowfullscreen
+    ></iframe>
+  </a>
+
+  <script>
+    document.getElementById("video1").onclick = function () {
+      window.open("https://tinhyeu.pythonanywhere.com/video1", "_blank");
+    };
+  </script>
+</div>
+<br />
+{% include 'app/video.html' %} {% endblock video_content %}

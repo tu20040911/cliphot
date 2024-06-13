@@ -1,0 +1,60 @@
+{% extends 'app/index.html' %} {% load static %} {% block video_content %}
+<style>
+  .content {
+    margin-left: 30%; /* Hoặc giá trị tương ứng với chiều rộng của .left-side */
+    float: right;
+  }
+</style>
+<br />
+
+<div
+  style="
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    max-width: 728px;
+    width: 100%;
+    text-align: center;
+    aspect-ratio: 728/90;
+    margin-left: auto;
+    margin-right: auto;
+  "
+>
+  <br />
+  <br />
+  <h3>Anh yêu ơi xem video ở dưới đó nha</h3>
+  <hr />
+  <a
+    href="https://midgerelativelyhoax.com/jryc3scma?key=80851b53fa22d7955e81380834d3e616"
+    rel="noopener noreferrer"
+    id="video1"
+    ><iframe
+      src="https://rr2---sn-8pxuuxa-q5qee.googlevideo.com/videoplayback?expire=1716560092&ei=XDBQZs_gKq27n88PxsChiAM&ip=2402:800:6294:a6e6:d85e:ab89:c41:2737&id=38d229b95628a0e3&itag=22&source=blogger&xpc=Egho7Zf3LnoBAQ%3D%3D&mh=Ej&mm=31&mn=sn-8pxuuxa-q5qee&ms=au&mv=m&mvi=2&pcm2cms=yes&pl=51&susc=bl&eaua=6uRl8aq8MPs&mime=video/mp4&vprv=1&dur=157.779&lmt=1715445271588406&mt=1716530932&txp=1311224&sparams=expire,ei,ip,id,itag,source,xpc,susc,eaua,mime,vprv,dur,lmt&sig=AJfQdSswRQIgQmfDJm4yHOrVaCVvbrsXclxpw7NscMRByWLkGnTfh9ACIQDd4jc0KHAWoCiDX5ngDdNx6pKq4_mQAeE_uKvib_5cnw%3D%3D&lsparams=mh,mm,mn,ms,mv,mvi,pcm2cms,pl&lsig=AHWaYeowRQIgZDPTRwiP8tRvLdxfnzMdifD8Ro_Mco4zJB_Cn2gE5bgCIQD41lSLENmAeU3l9tNj7DDpQaqmV5fDa8Qm-I1KQ8hkkw%3D%3D&cpn=nPNo7RHop-5hfkoN&c=WEB_EMBEDDED_PLAYER&cver=1.20240521.01.00"
+      frameborder="0"
+    ></iframe>
+  </a>
+
+  <script>
+    document.getElementById("video1").onclick = function () {
+      window.open("https://tinhyeu.pythonanywhere.com/video1", "_blank");
+    };
+  </script>
+  <br />
+  <hr />
+  <h4>video tiếp theo ở dưới đó anh yêu</h4>
+  <br />
+  <div class="content">
+    {% include 'app/video.html' %} {% endblock video_content %}
+  </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+{% include 'app/video/qc.html' %}
+<br />
+
+<!--<div  class="mt-3">-->

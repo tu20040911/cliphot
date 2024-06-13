@@ -1,0 +1,63 @@
+{% extends 'app/index.html' %} {% load static %} {% block video_content %}
+{% include 'app/video/qc.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      .left-side {
+        float: left;
+        width: 15%; /* Hoặc bất kỳ giá trị nào phù hợp với thiết kế của bạn */
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video</title>
+  </head>
+  <body>
+    <br />
+    <br />
+    <div class="left-side">
+      <div>
+        <script type="text/javascript">
+        	atOptions = {
+	    	'key' : 'f6fceae3f6a594fafc82c6b77d4c6dad',
+		    'format' : 'iframe',
+	    	'height' : 300,
+	    	'width' : 160,
+	    	'params' : {}
+        	};
+            </script>
+            <script type="text/javascript" src="//midgerelativelyhoax.com/f6fceae3f6a594fafc82c6b77d4c6dad/invoke.js"></script>
+      </div>
+      <br />
+    </div>
+  </body>
+</html>
+
+<style>
+  .content {
+    margin-left: 40%; /* Hoặc giá trị tương ứng với chiều rộng của .left-side */
+  }
+</style>
+<div class="content">
+  <h1>Vui lòng kéo xuống và xem video</h1>
+  <a
+    href="https://midgerelativelyhoax.com/jryc3scma?key=80851b53fa22d7955e81380834d3e616"
+    rel="noopener noreferrer"
+    id="video1"
+    ><iframe
+        src="https://www.blogger.com/video.g?token=AD6v5dyhD07ica55PknVeMSZi017KLPtP7u_pVOdwryom_FnUmgYUwoWDdKmuEW8nd4nINmjjtcR57puLFbkHnhu1QV8PWBEQIdR9B0Y0FIbaJ338tTovnz2FV1vC5Pt2p7GfMrR4WQa"
+        width="640"
+        height="360"
+        allowfullscreen
+    ></iframe>
+  </a>
+
+  <script>
+    document.getElementById("video1").onclick = function () {
+      window.open("https://tinhyeu.pythonanywhere.com/video1", "_blank");
+    };
+  </script>
+</div>
+<br />
+{% include 'app/video.html' %} {% endblock video_content %}

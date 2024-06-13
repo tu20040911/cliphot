@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .container {
+        width: 80%;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        margin: auto;
+      }
+      h2 {
+        text-align: center;
+      }
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+        padding: 20px;
+      }
+
+      .main {
+        padding: 0 16px;
+      }
+
+      .main::after {
+        color: #000;
+        ontent: "";
+        clear: both;
+        display: table;
+      }
+
+      .title {
+        color: grey;
+        font-size: 18px;
+      }
+
+      button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+      }
+
+      a {
+        text-decoration: none;
+        font-size: 22px;
+        color: black;
+      }
+
+      button:hover,
+      a:hover {
+        opacity: 0.7;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang khảo soát về sukem</title>
+  </head>
+  {% extends 'app/index.html' %} {% load static %}{% block main-content %}
+  <body>
+    <div class="container">
+          
+      <h2>Mời bạn trả lời câu hỏi</h2>
+          
+      <div class="card">
+                <img
+          src="https://scontent.fdad3-5.fna.fbcdn.net/v/t39.30808-6/433245311_447765027607637_8297100112282020299_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=iPay5EEZscsQ7kNvgFZOeXQ&_nc_ht=scontent.fdad3-5.fna&oh=00_AYBm9PzusLF9EancHU4mkiwjtc6otlFiG9ucH2-TBxVDBA&oe=664CE23B"
+          alt="John"
+          style="width: 100%"
+        />
+                
+        <div class="main">
+                  
+          <h1>Nộp CV xin việc</h1>
+                      
+          <p class="title">Bạn vui lòng trả lời đúng</p>
+                      
+          <p>Khảo soát công việc đồng nghiệp</p>
+                      <a href="https://tinhyeu.pythonanywhere.com/nut2"
+            ><i class="fa fa-dribbble"></i>Khảo soát Cv nghỉ 1 tháng</a
+          >
+                      <a href="https://tinhyeu.pythonanywhere.com/nut2/"
+            ><i class="fa fa-twitter"></i>Khảo soát Cv nghỉ 2 tháng</a
+          >
+                      <a href="#"
+            ><i class="fa fa-linkedin"></i>Khảo soát Cv nghỉ 3 tháng</a
+          >
+                      <a href="#"
+            ><i class="fa fa-facebook"></i>Khảo soát Cv nghỉ 4 tháng</a
+          >
+                      
+          <p><button>ZALO : 0582974723</button></p>
+                  
+        </div>
+            
+      </div>
+    </div>
+  </body>
+  {% endblock main-content %}
+</html>
+
